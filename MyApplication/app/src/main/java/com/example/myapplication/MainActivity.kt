@@ -9,13 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.myapplication.MainActivity2
 
 class MainActivity : AppCompatActivity() {
     private lateinit var nextButton: Button
     private lateinit var layoutPrincipal: ConstraintLayout
     private lateinit var deuxiemeTextView: TextView
-    private lateinit var tiTextInput : TextView
-    private lateinit var validateButon : Button
+    private lateinit var tiTextInput: TextView
+    private lateinit var validateButon: Button
 
     companion object {
         const val EXTRA_TEXT = "text_to_display"
@@ -32,17 +33,16 @@ class MainActivity : AppCompatActivity() {
         validateButon = findViewById(R.id.btnValider)
         deuxiemeTextView = TextView(this)
         layoutPrincipal.addView(deuxiemeTextView)
-
+        var text = "GO VALIDATE YOUR TEXT"
 
         validateButon.setOnClickListener {
-            val text = tiTextInput.text.toString()
+            text = tiTextInput.text.toString()
         }
 
         nextButton.setOnClickListener {
             val intent = Intent(this@MainActivity, MainActivity2::class.java)
-            intent.putExtra(EXTRA_TEXT, tiTextInput.text.toString())
+            intent.putExtra(EXTRA_TEXT, text)
             startActivity(intent)
-
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.layoutPrincipal)) { v, insets ->

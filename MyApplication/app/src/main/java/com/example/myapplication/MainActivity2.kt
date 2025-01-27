@@ -12,8 +12,9 @@ import com.example.myapplication.MainActivity.Companion.EXTRA_TEXT
 
 class MainActivity2 : AppCompatActivity() {
 
-    private lateinit var textDisplayer : TextView
-    private lateinit var previousButton : Button
+    private lateinit var textDisplayer: TextView
+    private lateinit var textoDisplayer: TextView
+    private lateinit var previousButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,16 +23,12 @@ class MainActivity2 : AppCompatActivity() {
 
         previousButton = findViewById(R.id.btnPrevious)
 
-        val intent = intent
-        val text = intent.getStringExtra(MainActivity.EXTRA_TEXT)
-
-        textDisplayer = findViewById(R.id.tdTextDisplay)
-        textDisplayer.text = text
+        textoDisplayer = findViewById(R.id.textView3)
+        textoDisplayer.text = intent.getStringExtra(EXTRA_TEXT)
 
         previousButton.setOnClickListener {
-            val intent = Intent(this@MainActivity2, MainActivity::class.java)
-            intent.putExtra(EXTRA_TEXT, text)
-            startActivity(intent)
+            val previousIntent = Intent(this@MainActivity2, MainActivity::class.java)
+            startActivity(previousIntent)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.layoutPrincipal2)) { v, insets ->
