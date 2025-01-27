@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="input_message">Entrez votre texte</string>
+    <!--<display_label name="deuxieme_vue">Vue2</display_label>-->
+</resources>
